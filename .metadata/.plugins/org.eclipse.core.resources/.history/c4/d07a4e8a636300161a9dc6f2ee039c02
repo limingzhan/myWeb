@@ -1,0 +1,240 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.uheart</groupId>
+  <artifactId>parentProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <developers>
+	<developer>
+		<name>zhanliming</name>
+		<id>liming.zhan</id>
+		<email>1218693775@qq.com</email>
+		<roles>
+			<role>developer</role>
+		</roles>
+		<timezone>+8</timezone>
+	</developer>
+  </developers>
+  
+  <properties>
+  	  <!-- 工程属性设置 -->
+	  <maven.build.timestamp.format>MM/dd/yyyy HH:mm:ss(+8)</maven.build.timestamp.format>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	  <jdk.version>1.7</jdk.version>
+	  
+	  <!-- junit version -->
+	  <junit.version>4.11</junit.version>
+	  <!-- logback version -->
+	  <logback.version>1.1.7</logback.version>
+	  <!-- slf4j api version -->
+	  <slf4j.version>1.7.21</slf4j.version>
+	  
+	  <!-- fastjson version -->
+	  <fastjson.version>1.2.16</fastjson.version>
+	  
+	  <!-- spring version -->  
+	  <spring.version>4.3.2.RELEASE</spring.version>  
+	  <!-- mybatis version -->  
+	  <mybatis.version>3.4.1</mybatis.version>
+	  <!-- mybatis spring version -->
+	  <mybatis-spring.version>1.3.0</mybatis-spring.version>
+	  <!-- druid pool -->
+	  <druid.version>1.0.24</druid.version>
+	  <!-- mysql driver -->
+	  <mysql.driver.version>5.1.28</mysql.driver.version>
+	  <!-- mysql connector version -->
+	  <jdbc.driver.version>6.0.3</jdbc.driver.version>
+	  
+	  <!-- aspectj version -->
+	  <aspectj.version>1.8.9</aspectj.version>
+	  <!-- cglib version -->
+	  <cglib.version>3.2.4</cglib.version>
+	  
+	  <!-- common version -->
+	  <commons-fileupload.version>1.3.2</commons-fileupload.version>
+	  <commons-io.version>2.5</commons-io.version>
+	  <commons-codec.version>1.10</commons-codec.version>
+	  
+  </properties>
+  
+  <dependencies>
+  	
+  	<!-- 单元测试 -->
+  	<dependency>  
+        <groupId>junit</groupId>  
+        <artifactId>junit</artifactId>  
+        <version>${junit.version}</version>  
+        <!-- 表示开发的时候引入，发布的时候不会加载此包 -->  
+        <scope>test</scope>  
+    </dependency>
+  	
+  	<!-- log START -->
+  	<!-- 日志 logback -->
+  	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>${logback.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-core</artifactId>
+	    <version>${logback.version}</version>
+	</dependency>
+  	
+  	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-access</artifactId>
+	    <version>${logback.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>${slf4j.version}</version>
+	</dependency>
+	
+	<!-- 格式化对象，方便日志输出 -->
+  	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>fastjson</artifactId>
+	    <version>${fastjson.version}</version>
+	</dependency>
+	<!-- log END -->
+	
+	<!-- SPRING START -->
+	<!-- spring 核心包 -->
+  	<dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-core</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-web</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-oxm</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-tx</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-jdbc</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-webmvc</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-aop</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-context-support</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-test</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+    <!-- SPRING END -->
+    
+    <!-- AOP begin -->
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>${aspectj.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${aspectj.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>${cglib.version}</version>
+		<scope>runtime</scope>
+	</dependency>
+	<!-- AOP end -->
+    
+  	
+  	<!-- spring 整合 mybatis -->
+  	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>${mybatis-spring.version}</version>
+	</dependency>
+  	
+  	<!-- mybatis 核心包 -->
+  	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>${mybatis.version}</version>
+	</dependency>
+  	
+  	<!-- 数据库连接驱动jar包（这里引入mysql）  -->
+  	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>${jdbc.driver.version}</version>
+	    <scope>runtime</scope>
+	</dependency>
+	
+	<!-- 数据库源 -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>druid</artifactId>
+	    <version>${druid.version}</version>
+	</dependency>
+  	
+  	<!-- 上传组件包 -->
+  	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	    <version>${commons-fileupload.version}</version>
+	</dependency>
+  	
+  	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>${commons-io.version}</version>
+	</dependency>
+  	
+  	<dependency>
+	    <groupId>commons-codec</groupId>
+	    <artifactId>commons-codec</artifactId>
+	    <version>${commons-codec.version}</version>
+	</dependency>
+	
+	
+	
+	
+	
+	
+	
+	
+  </dependencies>
+  
+</project>
