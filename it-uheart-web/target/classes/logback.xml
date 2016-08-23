@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="false">
+
+	<!-- 控制台 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger.%M:%L - %msg%n</pattern> -->
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %caller{1} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- tomcat文件日志,每天产生文件且文件超过5M就自动压缩成一个历史文件并新生成一个文件 -->
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${CATALINA_HOME}/logs/mis-baseres-web.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${CATALINA_HOME}/logs/it-uheart-web-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="ERROR">
+		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+	</root>
+
+	<logger name="org.apache" level="WARN" />
+	
+	<logger name="org.springframework.validation" level="WARN" />
+	<logger name="org.springframework" level="WARN" />
+	
+	<logger name="com.uheart" level="info" />
+
+</configuration>
